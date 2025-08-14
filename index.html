@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personal Finance Tracker</h1>
+            <p class="subtitle">Track your income and expenses with ease</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-wallet"></i> Current Balance</h2>
+                <div class="balance-container">
+                    <div class="balance-amount" id="balance">₹0</div>
+                    <div class="summary">
+                        <div class="summary-item income-summary">
+                            <div class="summary-label">Total Income</div>
+                            <div class="summary-value" id="total-income">₹0</div>
+                        </div>
+                        <div class="summary-item expense-summary">
+                            <div class="summary-label">Total Expenses</div>
+                            <div class="summary-value" id="total-expense">₹0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-plus-circle"></i> Add New Transaction</h2>
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="transactionName">Description</label>
+                        <input type="text" id="transactionName" placeholder="e.g., Groceries, Salary" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionAmount">Amount</label>
+                        <div class="currency-indicator">
+                            <input type="number" id="transactionAmount" class="currency-input" placeholder="e.g., 2500" min="1" step="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionType">Type</label>
+                        <select id="transactionType" required>
+                            <option value="">Select Type</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionCategory">Category</label>
+                        <select id="transactionCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="salary">Salary</option>
+                            <option value="business">Business</option>
+                            <option value="investment">Investment</option>
+                            <option value="food">Food & Dining</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="transport">Transportation</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="bills">Bills & Utilities</option>
+                            <option value="emi">EMI</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionDate">Date</label>
+                        <input type="date" id="transactionDate" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </button>
+                </form>
+            </div>
+            
+            <div class="card recent-transactions-card">
+                <h2 class="card-title"><i class="fas fa-list"></i> Recent Transactions</h2>
+                <div class="transaction-list" id="transactionList">
+                    <div class="empty-state">
+                        <i class="fas fa-file-invoice"></i>
+                        <h3>No transactions yet</h3>
+                        <p>Add your first transaction to get started</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2 class="card-title"><i class="fas fa-chart-line"></i> Monthly Financial Trends</h2>
+            <div style="height: 400px;">
+                <canvas id="monthlyChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Personal Finance Tracker</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
